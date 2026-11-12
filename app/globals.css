@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: #0b1b4d;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(60% 45% at 50% 38%, rgba(255, 255, 255, .55), transparent 70%),
+    linear-gradient(180deg, #6fe3ec 0%, #9eefef 52%, #c9f4f0 72%, #ffd6e6 100%);
+}
+
+.hero-text {
+  font-style: italic;
+  font-weight: 900;
+  color: #fff;
+  line-height: .82;
+  letter-spacing: -0.045em;
+  text-shadow: 0 10px 40px rgba(29, 78, 216, .12);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: #1d4ed8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.glass {
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.spot-pop {
+  animation: spotPop .6s cubic-bezier(.2, .8, .2, 1) 2.5s both;
+}
+
+@keyframes spotPop {
+  from {
+    opacity: 0;
+    transform: scale(.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.spot-ring {
+  animation: ring 2s ease-out infinite;
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 216, .45);
+  }
+
+  100% {
+    box-shadow: 0 0 0 14px rgba(29, 78, 216, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-delay: 0s !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* =================================
+   RITZ AUTO CARE BRAND COLORS
+================================= */
+
+:root {
+  --brand-navy: #082F59;
+  --brand-blue: #1766AE;
+  --brand-light-blue: #4B9DE0;
+  --brand-silver: #DCE8F2;
+  --brand-white: #FFFFFF;
+}
+
+/* =================================
+   HERO SECTION BACKGROUND
+================================= */
+
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(36, 117, 190, 0.55) 0%,
+      rgba(16, 75, 133, 0.25) 35%,
+      transparent 68%
+    ),
+    linear-gradient(
+      135deg,
+      #082F59 0%,
+      #0B477D 48%,
+      #061E3B 100%
+    );
+
+  overflow: hidden;
+}
+
+/* Blue ambient lighting */
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(48, 145, 224, 0.28),
+    rgba(23, 102, 174, 0.08) 45%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Bottom metallic lighting */
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: radial-gradient(
+    ellipse,
+    rgba(220, 232, 242, 0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =================================
+   HERO TYPOGRAPHY
+================================= */
+
+.hero-title {
+  color: #FFFFFF;
+  text-shadow: 0 8px 35px rgba(0, 0, 0, 0.15);
+}
+
+.hero-sub {
+  color: #DCE8F2;
+}
+
+/* =================================
+   CAR LIGHTING
+================================= */
+
+.car-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+/* =================================
+   ROTATION INDICATOR
+================================= */
+
+.indicator {
+  color: #FFFFFF;
+}
+
+.indicator svg {
+  stroke: #DCE8F2;
+}
+
+/* =================================
+   SERVICE CARD
+================================= */
+
+.info-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(220, 232, 242, 0.8);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+  color: #082F59;
+  backdrop-filter: blur(20px);
+}
+
+/* =================================
+   RESPONSIVE LIGHTING
+================================= */
+
+@media (max-width: 768px) {
+  .hero-bg::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-bg::after {
+    height: 180px;
+  }
+}
